@@ -7,7 +7,7 @@
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://mysql-c2pt:3306/mysql?useSSL=false&amp;allowPublicKeyRetrieval=true</property>
         <property name="hibernate.connection.username">mysql</property>
-        <property name="hibernate.connection.password">523hUnCFWMUXFA8DOnVo9X/1Z21L5w0Le4NiaTqmmBo=</property>
+        <property name="hibernate.connection.password">523hUnCFWMUXFA8DOnVo9X/lZ21L5w0Le4NiaTqmmBo=</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property>
