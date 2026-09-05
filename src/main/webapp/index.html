@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InsightLine — Call Intelligence for Support Teams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+<!-- ======================= NAV ======================= -->
+<header class="site-header">
+    <div class="site-shell">
+        <div class="brand">
+            <div class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="brand-text">
+                <h1>InsightLine</h1>
+                <p>Call recording &amp; transcription console</p>
+            </div>
+        </div>
+
+        <div class="brandbar-right">
+            <a class="btn btn-ghost nav-link" href="insightline.html">Open console</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+    <div class="site-shell hero-inner">
+        <p class="eyebrow center">Call intelligence for support teams</p>
+        <h2 class="hero-title">Every support call,<br>turned into a readable summary.</h2>
+        <p class="hero-sub">
+            InsightLine records customer calls, transcribes the ones that matter, and pulls out
+            the summary, key points and notable details automatically — so your team reviews text,
+            not hours of audio.
+        </p>
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="insightline.html">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Open the console
+            </a>
+            <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
+        </div>
+
+        <!-- Signature element: capture -> transcribe -> understand pipeline -->
+        <div class="pipeline" aria-hidden="true">
+            <div class="pipeline-node">
+                <div class="pipeline-icon node-mic">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span>Recorded call</span>
+            </div>
+
+            <div class="pipeline-link">
+                <div class="pipeline-wave">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="pipeline-node">
+                <div class="pipeline-icon node-sparkle">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.6 4.9L18.5 9.5 13.6 11.1 12 16l-1.6-4.9L5.5 9.5l4.9-1.6L12 3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+                </div>
+                <span>AI transcription</span>
+            </div>
+
+            <div class="pipeline-link">
+                <svg class="pipeline-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+
+            <div class="pipeline-node">
+                <div class="pipeline-icon node-doc">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span>Structured summary</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= FEATURES ======================= -->
+<section class="section">
+    <div class="site-shell">
+        <p class="eyebrow center">What it does</p>
+        <h3 class="section-title center">Built around the way support teams actually review calls</h3>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon icon-accent">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h4>Centralized recordings</h4>
+                <p>Every captured call lives in one archive, with status and transcription progress visible at a glance.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-teal">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.6 4.9L18.5 9.5 13.6 11.1 12 16l-1.6-4.9L5.5 9.5l4.9-1.6L12 3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+                </div>
+                <h4>One-click transcription</h4>
+                <p>Send every pending recording to your transcription pipeline at once and watch it complete in real time.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-amber">
+                    <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+                </div>
+                <h4>Structured summaries</h4>
+                <p>Summary, key points and notable details are pulled out automatically — no walls of raw transcript text.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-red">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/></svg>
+                </div>
+                <h4>Built for review, not replay</h4>
+                <p>Catch commitments, spot recurring issues and audit conversations in minutes instead of full playback.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= HOW IT WORKS ======================= -->
+<section class="section section-alt" id="how-it-works">
+    <div class="site-shell">
+        <p class="eyebrow center">The process</p>
+        <h3 class="section-title center">From recorded call to readable summary in three steps</h3>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <h4>Capture</h4>
+                <p>Calls are recorded and logged into the archive automatically as your team takes them.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <h4>Transcribe</h4>
+                <p>Send pending recordings to your transcription pipeline with a single click from the console.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <h4>Review</h4>
+                <p>Read the AI-formatted summary, key points and notable details instead of replaying the call.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= CTA ======================= -->
+<section class="cta">
+    <div class="site-shell">
+        <div class="cta-panel">
+            <div class="cta-grid" aria-hidden="true"></div>
+            <div class="cta-blob cta-blob-a" aria-hidden="true"></div>
+            <div class="cta-blob cta-blob-b" aria-hidden="true"></div>
+
+            <div class="cta-content">
+                <p class="cta-eyebrow">Listening in progress</p>
+                <h3>Ready to see what your calls are really saying?</h3>
+
+                <div class="cta-orb-wrap" aria-hidden="true">
+                    <span class="cta-ring cta-ring-1"></span>
+                    <span class="cta-ring cta-ring-2"></span>
+                    <div class="cta-orb">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                </div>
+
+                <div class="cta-wave" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                </div>
+
+                <a class="btn cta-btn" href="insightline.html">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Open the console
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="site-footer">
+    <div class="site-shell footer-inner">
+        <div class="brand brand-sm">
+            <div class="brand-mark brand-mark-sm">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span>InsightLine</span>
+        </div>
+        <p>Internal call intelligence tool for customer support.</p>
+    </div>
+</footer>
+
+<script src="landing.js"></script>
+</body>
+</html>

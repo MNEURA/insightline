@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InsightLine — Call Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+    <div class="brandbar">
+        <div class="brand">
+            <div class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="brand-text">
+                <h1>InsightLine</h1>
+                <p>Call recording &amp; transcription console</p>
+            </div>
+        </div>
+
+        <div class="brandbar-right">
+            <div class="env-pill"><span class="env-dot"></span> Connected to InsightLine</div>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="InsightLine views">
+        <button class="tab-btn is-active" id="tabRecordingsBtn" type="button" role="tab" aria-controls="panelRecordings" aria-selected="true" tabindex="0">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Recordings
+        </button>
+        <button class="tab-btn" id="tabTranscriptsBtn" type="button" role="tab" aria-controls="panelTranscripts" aria-selected="false" tabindex="-1">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Transcription
+        </button>
+    </div>
+
+    <section class="panel" id="panelRecordings" role="tabpanel" aria-labelledby="tabRecordingsBtn" tabindex="0">
+        <div class="panel-head">
+            <div>
+                <p class="eyebrow">Call archive</p>
+                <h2 id="recordingsHeading">Recordings</h2>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" id="loadBtn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Load recordings
+                </button>
+            </div>
+        </div>
+
+        <div class="filter-bar" id="recFilterBar" aria-label="Filter recordings">
+            <div class="filter-field">
+                <label for="recFrom">From</label>
+                <input type="date" id="recFrom">
+            </div>
+            <div class="filter-field">
+                <label for="recTo">To</label>
+                <input type="date" id="recTo">
+            </div>
+            <div class="filter-actions">
+                <button class="btn btn-primary" id="recFilterApplyBtn" type="button">Apply filter</button>
+                <button class="btn btn-ghost" id="recFilterClearBtn" type="button">Clear</button>
+            </div>
+        </div>
+
+        <div class="status-line" id="status" role="status" aria-live="polite" aria-atomic="true"></div>
+
+        <div id="recordingsArea" aria-busy="false">
+            <div class="empty-state">
+                <div class="empty-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>No recordings loaded yet</h3>
+                <p>Load recordings to see status, transcription progress and timestamps for every call.</p>
+            </div>
+        </div>
+
+        <nav class="pagination" id="recPagination" aria-label="Recordings pages"></nav>
+    </section>
+
+    <section class="panel" id="panelTranscripts" role="tabpanel" aria-labelledby="tabTranscriptsBtn" tabindex="0" hidden>
+        <div class="panel-head">
+            <div>
+                <p class="eyebrow">AI processing</p>
+                <h2 id="transcriptsHeading">Transcription</h2>
+            </div>
+            <div class="actions">
+                <button class="btn btn-teal" id="transcribeBtn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Transcribe pending
+                </button>
+                <button class="btn btn-ghost" id="loadTranscriptsBtn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Load transcripts
+                </button>
+            </div>
+        </div>
+
+        <div class="filter-bar" id="transcriptFilterBar" aria-label="Filter transcripts">
+            <div class="filter-field">
+                <label for="transFrom">From</label>
+                <input type="date" id="transFrom">
+            </div>
+            <div class="filter-field">
+                <label for="transTo">To</label>
+                <input type="date" id="transTo">
+            </div>
+            <div class="filter-field">
+                <label for="transCategory">Category</label>
+                <select id="transCategory">
+                    <option value="ALL">All categories</option>
+                    <option value="TECHNICAL">Technical</option>
+                    <option value="HELP">Help</option>
+                    <option value="ACCOUNT_BILLING">Account &amp; Billing</option>
+                    <option value="ORDER_SERVICE">Order &amp; Service</option>
+                    <option value="FEEDBACK_REQUEST">Feedback &amp; Request</option>
+                    <option value="UNKNOWN">Unknown</option>
+                </select>
+            </div>
+            <div class="filter-actions">
+                <button class="btn btn-teal" id="transFilterApplyBtn" type="button">Apply filter</button>
+                <button class="btn btn-ghost" id="transFilterClearBtn" type="button">Clear</button>
+            </div>
+        </div>
+
+        <div id="waveformLoader" class="waveform-loader" role="status" aria-live="polite" hidden>
+            <div class="waveform-bars" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="waveform-text">
+                <strong>Transcribing pending recordings</strong>
+                <span>This runs speech-to-text and summarization — it can take a little while.</span>
+            </div>
+        </div>
+
+        <div class="status-line" id="transcribeStatus" role="status" aria-live="polite" aria-atomic="true"></div>
+
+        <div id="transcriptsArea" aria-busy="false">
+            <div class="empty-state">
+                <div class="empty-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>No transcripts loaded yet</h3>
+                <p>Once calls are transcribed, their summaries will appear here as readable cards.</p>
+            </div>
+        </div>
+
+        <nav class="pagination" id="transcriptPagination" aria-label="Transcript pages"></nav>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
