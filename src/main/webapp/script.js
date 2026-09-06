@@ -1,8 +1,8 @@
-const RECORDINGS_URL = "/insightline/api/v1/loadAllRecording";
-const TRANSCRIBE_ALL_URL = "/insightline/api/v1/transcribeAll";
-const LOAD_TRANSCRIPTS_URL = "/insightline/api/v1/loadAllTranscripts";
-const FILTER_RECORDINGS_URL = "/insightline/api/v1/filterRecordings";
-const FILTER_TRANSCRIPTS_URL = "/insightline/api/v1/filterTranscripts";
+const RECORDINGS_URL = "/api/v1/loadAllRecording";
+const TRANSCRIBE_ALL_URL = "/api/v1/transcribeAll";
+const LOAD_TRANSCRIPTS_URL = "/api/v1/loadAllTranscripts";
+const FILTER_RECORDINGS_URL = "/api/v1/filterRecordings";
+const FILTER_TRANSCRIPTS_URL = "/api/v1/filterTranscripts";
 
 const REC_PAGE_SIZE = 6;
 const TRANSCRIPT_PAGE_SIZE = 3;
