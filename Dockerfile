@@ -19,7 +19,8 @@ COPY --from=build /app/target/insightline.war /usr/local/tomcat/webapps/ROOT.war
 
 WORKDIR /usr/local/tomcat
 COPY scripts ./scripts
-RUN mkdir -p recordings transcripts_tmp
+COPY recordings ./recordings
+RUN mkdir -p transcripts_tmp
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]

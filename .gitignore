@@ -43,5 +43,4 @@ build/
 .env.*
 
 ### Generated runtime files ###
-/recordings/
 /transcripts_tmp/
